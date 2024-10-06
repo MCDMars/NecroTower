@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccphnl002cj36"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_vy6g0"]
+[ext_resource type="PackedScene" uid="uid://3fj2oyoxmob2" path="res://Characters/player.tscn" id="1_wprkc"]
+[ext_resource type="PackedScene" uid="uid://drrw6btgys5mt" path="res://Scenes/dungeon_tiles.tscn" id="2_77lk2"]
+[ext_resource type="PackedScene" uid="uid://wmp07mqdsw7w" path="res://Characters/nechronomancer.tscn" id="3_7s4vc"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_vy6g0")
+
+[node name="Player" parent="." instance=ExtResource("1_wprkc")]
+position = Vector2(163, 83)
+
+[node name="dungeonTiles" parent="." instance=ExtResource("2_77lk2")]
+layer_0/tile_data = PackedInt32Array(262153, 65536, 1, 327689, 0, 1, 393225, 0, 1, 393226, 0, 1, 327690, 0, 1, 262154, 0, 1, 196616, 0, 1, 196617, 0, 1, 196618, 0, 1, 196619, 0, 0, 131083, 0, 1, 131082, 0, 1, 131081, 0, 1, 131080, 0, 1, 458761, 131072, 2, 458762, 131072, 2, 327688, 131072, 1, 393224, 131072, 1, 327691, 196608, 2, 393227, 196608, 2, 262152, 458752, 0, 262155, 393216, 0, 458763, 327680, 1, 458760, 262144, 1, 262151, 262144, 1, 262156, 327680, 1, 131079, 131072, 1, 196615, 131072, 1, 131084, 196608, 2, 196620, 196608, 2, 65547, 65536, 0, 65545, 131072, 0, 65546, 196608, 0, 65544, 196608, 0, 65543, 131072, 1, 65548, 196608, 2, 7, 262144, 0, 12, 327680, 0, 8, 196608, 1, 9, 196608, 1, 10, 196608, 1, 11, 196608, 1)
+
+[node name="nechronomancer" parent="." instance=ExtResource("3_7s4vc")]
+position = Vector2(160, 50)

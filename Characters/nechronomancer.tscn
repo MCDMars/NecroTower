@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://wmp07mqdsw7w"]
+
+[ext_resource type="Texture2D" uid="uid://cqe5xr0lugtag" path="res://art/necromancer-cast-Sheet.png" id="1_hupc7"]
+[ext_resource type="Script" path="res://Scripts/nechronomancer.gd" id="1_kmec6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxkug"]
+atlas = ExtResource("1_hupc7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aima2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pxkug")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_akntt"]
+size = Vector2(9, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gawvr"]
+size = Vector2(12, 15)
+
+[node name="nechronomancer" type="CharacterBody2D"]
+script = ExtResource("1_kmec6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_aima2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -7)
+shape = SubResource("RectangleShape2D_akntt")
+
+[node name="Area2D" type="Area2D" parent="." groups=["hit"]]
+
+[node name="hurtbox" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_gawvr")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
